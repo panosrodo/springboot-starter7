@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/teachers")
 public class TeacherController {
 
-    @GetMapping("/insert)")
+    @GetMapping("/insert")
     public String getTeacherForm(Model model) {
         model.addAttribute("teacherInsertDTO", new TeacherInsertDTO());
         return "teachers/insert";
@@ -23,8 +23,9 @@ public class TeacherController {
     public String addTeacher(@ModelAttribute("teacherInsertDTO") TeacherInsertDTO teacherInsertDTO, Model model) {
         // validation
         // service.addTeacher()
-        TeacherReadOnlyDTO teacherReadOnlyDTO = new TeacherReadOnlyDTO(1l, "Αθανάσιος", "Ανδρούτσος");
+        TeacherReadOnlyDTO teacherReadOnlyDTO = new TeacherReadOnlyDTO(1L, "Αθανάσιος", "Ανδρούτσος");
         model.addAttribute("dto", teacherReadOnlyDTO);
         return "teachers/success";
     }
+
 }
